@@ -3,7 +3,7 @@
     <HomePanel title="新鲜好物" sub-title="新鲜出炉 品质靠谱">
       <template #right><XtxMore path="/" /></template>
       <!-- 面板内容 -->
-      <ul v-if="goods.length" class="goods-list">
+      <ul ref="target" v-if="goods.length" class="goods-list">
         <li v-for="item in goods" :key="item.id">
           <RouterLink :to="`/product/${item.id}`">
             <img :src="item.picture" alt="">
@@ -22,6 +22,7 @@ import { ref } from 'vue'
 import HomePanel from './home-panel'
 import { findNew } from '@/api/home'
 import HomeSkeleton from './home-skeleton.vue'
+// import { useLazyData } from '@/hooks'
 export default {
   name: 'HomeNew',
   components: { HomePanel, HomeSkeleton },
@@ -30,7 +31,9 @@ export default {
     findNew().then(data => {
       goods.value = data.result
     })
-    return { goods }
+    // const target = ref(null)
+    // const result = useLazyData(target, findNew)
+    return { goods, ref }
   }
 }
 </script>
