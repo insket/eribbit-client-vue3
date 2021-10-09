@@ -57,6 +57,7 @@ ul {
   user-select: none;
 }
 .container {
+  width: 1240px;
   margin: 0 auto;
   position: relative;
 }

@@ -1,6 +1,6 @@
 <template>
-  <nav class="app-topnav">
-    <div class="container">
+  <div class="app">
+    <nav class="app-topnav">
       <ul>
         <template v-if="profile.token">
           <li><a href="javascript:;"><i class="iconfont icon-user"></i>{{profile.account}}</a></li>
@@ -16,8 +16,8 @@
         <li><a href="javascript:;">关于我们</a></li>
         <li><a href="javascript:;"><i class="iconfont icon-phone"></i>手机版</a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 <script>
 import { useStore } from 'vuex'
@@ -37,6 +37,9 @@ export default {
 }
 </script>
 <style scoped lang="less">
+.app{
+  width: 100%;
+}
 .app-topnav {
   background: #333;
   ul {
